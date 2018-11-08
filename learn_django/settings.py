@@ -75,13 +75,26 @@ WSGI_APPLICATION = 'learn_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+# mysql
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',  # 选用mysql数据库引擎
+        'HOST': '172.10.1.2',    # 远程数据库主机地址
+        'PORT' : '3306',         # 远程数据库连接端口
+        'NAME':'polls',            # 远程数据库 data_name
+        'USER':'root',         # 远程数据库用户名
+        'PASSWORD': '123qwe', # 远程数据库密码
+        'OPTIONS': {
+            'autocommit': True,  # 自动提交更新开启
+        }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
